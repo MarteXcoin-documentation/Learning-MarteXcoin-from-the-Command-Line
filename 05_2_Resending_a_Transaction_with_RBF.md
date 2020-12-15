@@ -1,7 +1,5 @@
 # 5.2: Resending a Transaction with RBF
 
-> :information_source: **NOTE:** This is a draft in progress, so that I can get some feedback from early reviewers. It is not yet ready for learning.
-
 If your Bitcoin transaction is stuck, and you're sender, you can resend it using RBF (replace-by-fee). However, that's not all that RBF can do: it's generally a powerful and multipurpose feature that allows Bitcoin senders to recreate transactions for a variety of reasons.
 
 > :warning: **VERSION WARNING:** This is an innovation from Bitcoin Core v 0.12.0,that reached full maturity in the Bitcoin Core wallet with Bitcoin Core v 0.14.0. Obviously, most people should be using it by now.
@@ -17,7 +15,7 @@ $ rawtxhex=$(bitcoin-cli -named createrawtransaction inputs='''[ { "txid": "'$ut
 You should of course sign and send your transaction as usual:
 ```
 $ signedtx=$(bitcoin-cli -named signrawtransactionwithwallet hexstring=$rawtxhex | jq -r '.hex')
-standup@btctest20:~$ bitcoin-cli -named sendrawtransaction hexstring=$signedtx
+$ bitcoin-cli -named sendrawtransaction hexstring=$signedtx
 5b953a0bdfae0d11d20d195ea43ab7c31a5471d2385c258394f3bb9bb3089375
 ```
 Now, when you look at your transaction, you should see something new: the `bip125-replaceable` line, which has always been marked `no` before, is now marked `yes`:
@@ -202,7 +200,7 @@ $ bitcoin-cli -named gettransaction txid=75208c5c8cbd83081a0085cd050fc7a4064d87c
 }
 ```
 
-> :warning: **VERSION WARNING:** The `bumpfee` RPC require Bitcoin Core v.0.14.0.
+> :warning: **VERSION WARNING:** The `bumpfee` RPC requires Bitcoin Core v.0.14.0.
 
 ## Summary: Resending a Transaction with RBF
 

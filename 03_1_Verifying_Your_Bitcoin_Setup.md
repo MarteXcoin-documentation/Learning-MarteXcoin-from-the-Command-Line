@@ -1,7 +1,5 @@
 # 3.1: Verifying Your Bitcoin Setup
 
-> :information_source: **NOTE:** This is a draft in progress, so that I can get some feedback from early reviewers. It is not yet ready for learning.
-
 Before you start playing with Bitcoin, you should ensure that everything is setup correctly.
 
 ## Create Your Aliases
@@ -30,7 +28,7 @@ You'll begin your exploration of the Bitcoin network with the `bitcoin-cli` comm
 $ ps auxww | grep bitcoind
 standup    455  1.3 34.4 3387536 1392904 ?     SLsl Jun16  59:30 /usr/local/bin/bitcoind -conf=/home/standup/.bitcoin/bitcoin.conf
 ```
-If it's not running, you'll want to run `/usr/local/bin/bitcoind -daemon` by hand and also place it in your crontab, as explained in [§2.1: Setting up a Bitcoin-Core VPS by Hand](02_1_Setting_Up_a_Bitcoin-Core_VPS_by_Hand.md).
+If it's not running, you'll want to run `/usr/local/bin/bitcoind -daemon` by hand and also place it in your crontab.
 
 ## Verify Your Blocks
 

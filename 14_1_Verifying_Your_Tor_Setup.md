@@ -1,6 +1,6 @@
 # 14.1: Verifying Your Tor Setup
 
-> :information_source:  **NOTE:** This is a draft in progress, so that I can get some feedback from early reviewers. It is not yet ready for learning.
+> :information_source: **NOTE:** This section has been recently added to the course and is an early draft that may still be awaiting review. Caveat reader.
 
 If you did a standard installation with [Bitcoin Standup](https://github.com/BlockchainCommons/Bitcoin-Standup) then you should have Tor set up as part of your Bitcoin node: Tor is installed and has created hidden services for the Bitcoin RPC ports; while an onion address has also been created for `bitcoind`. This section talks about what all of that is and what to do with it.
 
@@ -356,7 +356,7 @@ Nonetheless, there are ways to make `bitcoind` use Tor more, as discussed in the
 
 Tor is a software package installed at part of Bitcoin Standup that allows you to exchange communications anonymously. It will protect both your RPC ports (8332 or 18332) and your `bitcoind` ports (8333 or 18333) — but you have to actively connect to the onion address to use them! Tor is a building stone of privacy and security for your Bitcoin setup, and you can verify it's available and linked to Bitcoin with a few simple commands.
 
-> :fire ***What is the power of Tor?*** Many attacks on Bitcoin users depend on knowing who the victim is and that they're transacting Bitcoins. Tor can protect you from that by hiding both where you are and what you're doing. It's particularly important if you want to connect to your own node remotely via a software wallet, and can be crucial if you do so in some country where you might not feel that your Bitcoin usage is appreciated or protected. If you must take your Bitcoin services on the road, make sure that your wallet fully supports Tor and exchanges all RPC commands with your server using that protocol.
+> :fire: ***What is the power of Tor?*** Many attacks on Bitcoin users depend on knowing who the victim is and that they're transacting Bitcoins. Tor can protect you from that by hiding both where you are and what you're doing. It's particularly important if you want to connect to your own node remotely via a software wallet, and can be crucial if you do so in some country where you might not feel that your Bitcoin usage is appreciated or protected. If you must take your Bitcoin services on the road, make sure that your wallet fully supports Tor and exchanges all RPC commands with your server using that protocol.
 
 ## What's Next?
 

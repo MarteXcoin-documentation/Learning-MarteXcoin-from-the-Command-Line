@@ -1,214 +1,175 @@
-# 18.5: Accessing Bitcoind with Rust
+# 17.5: Accessing Bitcoind with Rust
 
-## Setup
+> :information_source: **NOTE:** This section has been recently added to the course and is an early draft that may still be awaiting review. Caveat reader.
 
-We'll need `Rust` and `Cargo`. Installing them is easy:
+This section explains how to interact with `bitcoind` using the Rust programming language and the [`bitcoincore-rpc` crate](https://github.com/rust-bitcoin/rust-bitcoincore-rpc).
 
+## Set Up Rust
+
+You need to install both Rust and Cargo.
+
+They can be installed via `curl`. Just use the "default" installation:
 ```vim
 $ curl https://sh.rustup.rs -sSf | sh
 ```
-
-If everything goes well, we should see:
-
+If everything goes well, you should see:
 ```vim
 Rust is installed now. Great!
 ```
-
-To set `Bitcoin Regtest` network up and allow communication with our Rust program we
-will be using the following `bitcoind` configuration in `bitcoin.conf`
-
-```vim
-regtest=1
-server=1
-rpcuser=bitcoin
-rpcpassword=password
-[test]
-rpcport=18443
+You'll then need to either logout and back in, or else add Cargo's binary directory to your path by hand:
+```
+$ source $HOME/.cargo/env
 ```
 
-> Note: Never use a simple password like that when on Bitcoin Mainnet!
+### Set Up `bitcoincore-rpc`
 
-### Create a New Project
+For most programming languages, you need to install a Bitcoin RPC library before you create your first project, but here you'll do it as part of your project creation.
 
-We create a new project with `cargo new btc_test`:
+### Create a `bitcoincore-rpc` Project
 
-```vim
-gorazd@gorazd-MS-7C37:~/Projects/BlockchainCommons$ cargo new btc_test
+You can create a new project using `cargo new btc_test`:
+
+```
+$ cargo new btc_test
      Created binary (application) `btc_test` package
 ```
 
-Let's move into the newly created project `btc_test`. We notice a "hello world" example
-with the source code in `src/main.rs` and a `Cargo.toml` file. Let's run it with `cargo run`:
+This will create a `btc_test` directory that contains a "hello world" source-code example in `src/main.rs` and a `Cargo.toml` file. 
 
-```vim
-gorazd@gorazd-MS-7C37:~/Projects/BlockchainCommons/btc_test$ cargo run
-   Compiling btc_test v0.1.0 (/home/gorazd/Projects/BlockchainCommons/btc_test)
+You'll compile and run your code with `cargo run`:
+```
+$ cd btc_test
+$ cargo run
+   Compiling btc_test v0.1.0 (/home/standup/btc_test)
     Finished dev [unoptimized + debuginfo] target(s) in 0.14s
      Running `target/debug/btc_test`
 Hello, world!
 ```
 
-> Note: if you run into error “linker ‘cc’ not found”, you'll have to install a
+> :information_source: **NOTE:** if you run into error `linker ‘cc’ not found`, you'll have to install a
 C compiler. If on Linux, go ahead and install the [development tools](https://www.ostechnix.com/install-development-tools-linux/).
 
-
-We will use `bitcoincore-rpc` crate (library), therefore we add it to our `Cargo.toml`
-under section `dependencies` like so:
+In order to access the `bitcoincore-rpc` crate (library), you must add it to your `Cargo.toml`
+file under the section `dependencies`:
 
 ```rust
 [dependencies]
 bitcoincore-rpc = "0.11.0"
 ```
 
-Running our example again will install our crate and
-its dependencies.
-
-```vim
-gorazd@gorazd-MS-7C37:~/Projects/BlockchainCommons/btc_test$ cargo run
+When you `cargo run` again, it will install the crate and
+its (numerous) dependencies.
+```
+$ cargo run
     Updating crates.io index
    ...
    Compiling bitcoin v0.23.0
    Compiling bitcoincore-rpc-json v0.11.0
    Compiling bitcoincore-rpc v0.11.0
-   Compiling btc_test v0.1.0 (/home/gorazd/Projects/BlockchainCommons/btc_test)
+   Compiling btc_test v0.1.0 (/home/standup/btc_test)
     Finished dev [unoptimized + debuginfo] target(s) in 23.56s
      Running `target/debug/btc_test`
 Hello, world!
 ```
 
+When you are using `bitcoin-rpc`, you will typically need to include the following:
+```
+use bitcoincore_rpc::{Auth, Client, RpcApi};
+```
+
 ## Build Your Connection
 
-Let us create a Bitcoin `RPC client` and modify the `main.rs`:
+To create a Bitcoin `RPC client`, modify the `src/main.rs`:
 
 ```rust
-use bitcoincore_rpc::{Auth, Client};
+use bitcoincore_rpc::{Auth, Client, RpcApi};
 
 fn main() {
     let rpc = Client::new(
-        "http://localhost:18443".to_string(),
-        Auth::UserPass("bitcoin".to_string(), "password".to_string()),
+        "http://localhost:18332".to_string(),
+        Auth::UserPass("StandUp".to_string(), "password".to_string()),
     )
     .unwrap();
 }
 ```
 
-`Cargo run` should successfully compile and run the example with one warning 
-`warning: unused variable: rpc`
+As usual, make sure to insert your proper user name and password from `~/.bitcoin/bitcoin.conf`. Here, they're used as the arguments for `Auth::UserPass`.
 
+> :link: **TESTNET vs MAINNET:** And, as usual, use port 8332 for mainnet.
+
+When you're done, you should also close your connection:
+```rust
+    let _ = rpc.stop().unwrap();
+```
+
+`cargo run` should successfully compile and run the example with one warning  `warning: unused variable: rpc`
 
 ### Make an RPC Call
 
-This is a simple RPC call without arguments:
+RPC calls are made using the `rpc` `Client` that you created:
 
 ```rust
 let mining_info = rpc.get_mining_info().unwrap();
 println!("{:#?}", mining_info);
 ```
+Generally, the words in the RPC call are separated by `_`s. A complete list is available at the [crate docs](https://crates.io/crates/bitcoincore-rpc).
 
-The compiler will tell us to include traits into scope. So lets add them:
+### Make an RPC Call with Arguments
+
+Sending an RPC call with arguments using Rust just requires knowing how the function is laid out. For example, the `get_block` function is defined as follows in the [docs](https://docs.rs/bitcoincore-rpc/0.11.0/bitcoincore_rpc/trait.RpcApi.html#method.get_block):
 
 ```rust
-use bitcoincore_rpc::{Auth, Client, RpcApi};
+fn get_block(&self, hash: &BlockHash) -> Result<Block>
+```
+You just need to allow it to borrow a blockhash, which can be retrieved (for example) by `get_best_block_hash`.
+
+Here's the complete code to retrieve a block hash, turn that into a block, and print it.
+```
+    let hash = rpc.get_best_block_hash().unwrap();
+    let block = rpc.get_block(&hash).unwrap();
+    
+    println!("{:?}", block);
 ```
 
-If our properly configured `bitcoind` is running, executing our example should
-result in:
+> :note: **NOTE:** Another possible call that we considered for this section was `get_address_info`, but unfortunately as of this writing, the `bitcoincore-rpc` function doesn't work with recent versions of Bitcoin Core due to the crate not addressing the latest API changes in Bitcoin Core. We expect this will be solved in the next crate's release, but in the meantime, _caveat programmer_.
 
-```vim
-gorazd@gorazd-MS-7C37:~/Projects/BlockchainCommons/btc_test$ cargo run
-   Compiling btc_test v0.1.0 (/home/gorazd/Projects/BlockchainCommons/btc_test)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.80s
+### Run Your Code
+
+You can access the [src code](src/17_5_main-getinfo.rs) and run it. Unfortunately, the "Block" info will come out a bit ugly because this example doesn't include a library to prettify it.
+```
+$ cargo run 
+   Compiling btc_test v0.1.0 (/home/standup/btc_test)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.61s
      Running `target/debug/btc_test`
 GetMiningInfoResult {
-    blocks: 5167,
-    current_block_weight: Some(
-        0,
-    ),
-    current_block_tx: Some(
-        0,
-    ),
-    difficulty: 0.00000000046565423739069247,
-    network_hash_ps: 1.764705882352941,
-    pooled_tx: 2,
-    chain: "regtest",
-    warnings: "",
+    blocks: 1832335,
+    current_block_weight: None,
+    current_block_tx: None,
+    difficulty: 4194304.0,
+    network_hash_ps: 77436285865245.1,
+    pooled_tx: 4,
+    chain: "test",
+    warnings: "Warning: unknown new rules activated (versionbit 28)",
 }
+Block { header: BlockHeader { version: 541065216, prev_blockhash: 000000000000027715981d5a3047daf6819ea3b8390b73832587594a2074cbf5, merkle_root: 4b2e2c2754b6ed9cf5c857a66ed4c8642b6f6b33b42a4859423e4c3dca462d0c, time: 1599602277, bits: 436469756, nonce: 218614401 }, txdata: [Transaction { version: 1, lock_time: 0, input: [TxIn { previous_output: OutPoint { txid: 0000000000000000000000000000000000000000000000000000000000000000, vout: 4294967295 }, script_sig: Script(OP_PUSHBYTES_3 8ff51b OP_PUSHBYTES_22 315448617368263538434f494e1d00010320a48db852 OP_PUSHBYTES_32 <push past end>), sequence: 4294967295, witness: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] }], output: [TxOut { value: 19721777, script_pubkey: Script(OP_HASH160 OP_PUSHBYTES_20 011beb6fb8499e075a57027fb0a58384f2d3f784 OP_EQUAL) }, TxOut { value: 0, script_pubkey: Script(OP_RETURN OP_PUSHBYTES_36 aa21a9ed63363f3620ab5e38b8860a50c84050e5ec31af3636bbd73f01ba9f14103100ee) }] }, Transaction { version: 2, lock_time: 1832282, input: [TxIn { previous_output: OutPoint { txid: cbf880f73d421baf0aa4f0d28e63ba00e5bc6bd934b91eb0641354ce5ca42f7e, vout: 0 }, script_sig: Script(OP_PUSHBYTES_22 00146b8dbd32e5deb90d22934e1513bae6e70156cd50), sequence: 4294967294, witness: [[48, 68, 2, 32, 13, 89, 205, 30, 67, 24, 196, 83, 65, 224, 44, 138, 98, 58, 81, 135, 132, 209, 23, 166, 23, 44, 3, 228, 95, 102, 166, 214, 62, 38, 155, 147, 2, 32, 119, 2, 34, 246, 148, 255, 166, 10, 90, 52, 242, 32, 74, 241, 123, 148, 89, 199, 197, 3, 152, 134, 242, 215, 109, 61, 241, 241, 13, 70, 86, 207, 1], [2, 192, 145, 170, 206, 55, 4, 36, 138, 145, 217, 50, 19, 73, 130, 136, 245, 131, 184, 142, 239, 75, 13, 67, 17, 177, 57, 86, 151, 139, 89, 35, 109]] }], output: [TxOut { value: 1667908, script_pubkey: Script(OP_HASH160 OP_PUSHBYTES_20 908ca2b8b49ccf53efa2226afa85f6cc58dfd7e7 OP_EQUAL) }, TxOut { value: 9093, script_pubkey: Script(OP_DUP OP_HASH160 OP_PUSHBYTES_20 42ee67664ce16edefc68ad0e4c5b7ce2fc2ccc18 OP_EQUALVERIFY OP_CHECKSIG) }] },  ...] }
 ```
 
-If we wanted we could close the connection:
+## Look Up Funds
 
-```rust
-    let _ = rpc.stop().unwrap();
-```
-
-
-## Manipulate Your Wallet
-
-### Look Up Addresses
-
-Here we will make our first call with an argument. To see the type of an argument,
-we want to look at the function definition:
-
-```rust
-fn get_address_info(&self, address: &Address) -> Result<json::GetAddressInfoResult> {
-self.call("getaddressinfo", &[address.to_string().into()])
-}
-```
-
-We see that our argument is of type `Address` and that it will be borrowed. Further,
-looking at the structure `Address`, we notice a convenient `trait` implemented which
-allows us to create an `Address` out of a string:
-
-```rust
-impl FromStr for Address {
-    type Err = Error;
-
-    fn from_str(s: &str) -> Result<Address, Error> {
-```
-
-Now that we now what structure and trait we are dealing with, we bring them into
-scope
-
-```rust
-use bitcoincore_rpc::bitcoin::Address;
-use std::str::FromStr;
-```
-
-so we can use them:
-
-```rust
-let addr = Address::from_str("bcrt1qanga5jxx845q82h9qgjfuedps92lktqv073qct").unwrap();
-let addr_info = rpc.get_address_info(&addr).unwrap();
-println!("{:?}", addr_info);
-```
-
-Running our program results in:
-
-```vim
-GetAddressInfoResult { address: bcrt1qanga5jxx845q82h9qgjfuedps92lktqv073qct, script_pub_key: Script(OP_0 OP_PUSHBYTES_20 ecd1da48c63d6803aae502249e65a18155fb2c0c), is_mine: Some(true), is_watchonly: Some(false), is_script: Some(false), is_witness: Some(true), witness_version: Some(0), witness_program: Some([236, 209, 218, 72, 198, 61, 104, 3, 170, 229, 2, 36, 158, 101, 161, 129, 85, 251, 44, 12]), script: None, hex: None, pubkeys: None, n_signatures_required: None, pubkey: Some(PublicKey { compressed: true, key: PublicKey(f895d610ab1ceddfd87814b1f7a911fee1135a9347d4fd1754a06ddf84757c5c527a90804949b025d7272bef4d58a1324c18d7a8f6b7ffa949447bcb6a225e6e) }), embedded: None, is_compressed: None, label: "lbl", timestamp: Some(1582063890), hd_key_path: Some(m/0'/0'/99'), hd_seed_id: Some(00b332a133c03c4e613f0106dc814bcc79af60ff), labels: [GetAddressInfoResultLabel { name: "lbl", purpose: Receive }] }
-```
-
-> Note: this call doesn't work with recent versions of Bitcoin Core due to the
-crate not addressing the latest API changes in Bitcoin Core.
-We expect it to be solved in the next crate's release.
-
-### Look Up Funds
-
-We can look up our funds without optional arguments like so:
+You can look up funds without optional arguments using the `get_balance` function:
 
 ```rust
 let balance = rpc.get_balance(None, None).unwrap();
 println!("Balance: {:?} BTC", balance.as_btc());
 ```
-
-```vim
+As shown, the `as_btc()` function helps to output the balance in a readable form:
+```
 Balance: 3433.71692741 BTC
 ```
 
-### Create an Address
+## Create an Address
 
-Here is an example of calling an RPC method with the optional arguments specified, i.e.
-a label and an address type:
+Creating an address demonstrates how to make an RPC call with multiple optional arguments specified (e.g., a label and an address type).
 
 ```rust
 // Generate a new address
@@ -217,31 +178,24 @@ let myaddress = rpc
     .unwrap();
 println!("address: {:?}", myaddress);
 ```
-
-If we have inspected our function's definition we bring the missing things into
-scope. Otherwise the compiler will hint us to do so:
-
+This will also require you to bring the `json` definition into scope:
 ```rust
 use bitcoincore_rpc::{json, Auth, Client, RpcApi};
 ```
 
-Program execution results in:
+## Send a Transaction
 
-```vim
-address: bcrt1q0y0dk70lut5l3y4f0fe52am23egfmr63dejy9r
-```
+You now have everything you need to create a transaction, which will be done in five parts:
 
-Now, we would like to have some bitcoins to our newly generated address. Since
-we are on the `Regtest` network we can generate them ourselves:
+1. List UTXOs
+2. Populate Variables
+3. Create Raw Transaction
+4. Sign Transaction
+5. Send Transaction
 
-```rust
-// Generate 101 blocks to our address
-let _ = rpc.generate_to_address(101, &myaddress);
-```
+### 1. List UTXOs
 
-## Create a Transaction
-
-First, we list unspent transactions. Let's look at those with at least 3 BTC and take the first one:
+To start the creation of a transaction, you first find a UTXO to use. The following takes the first UTXO with at least 0.01 BTC
 
 ```rust
 let unspent = rpc
@@ -251,7 +205,7 @@ let unspent = rpc
     None,
     None,
     Option::Some(json::ListUnspentQueryOptions {
-        minimum_amount: Option::Some(Amount::from_btc(3.0).unwrap()),
+        minimum_amount: Option::Some(Amount::from_btc(0.01).unwrap()),
         maximum_amount: None,
         maximum_count: None,
         minimum_sum_amount: None,
@@ -263,89 +217,124 @@ let selected_tx = &unspent[0];
 
 println!("selected unspent transaction: {:#?}", selected_tx);
 ```
-Here it is:
-
-```vim
-selected unspent transaction: ListUnspentResultEntry {
-    txid: 34e283eb5b52c66aba9766bdda46eb038bc1138e992b593c22f7cbf1d2e9ba10,
-    vout: 0,
-    address: Some(
-        bcrt1q7lju6c0ynwerch0te4saxwxgm70ltd3lr9vj6l,
-    ),
-    label: Some(
-        "",
-    ),
-    redeem_script: None,
-    witness_script: None,
-    script_pub_key: Script(OP_0 OP_PUSHBYTES_20 f7e5cd61e49bb23c5debcd61d338c8df9ff5b63f),
-    amount: Amount(625000000 satoshi),
-    confirmations: 4691,
-    spendable: true,
-    solvable: true,
-    descriptor: None,
-    safe: true,
-}
-```
-
-This will require to bring another structure into scope:
+This will require bringing more structures into scope:
 
 ```rust
 use bitcoincore_rpc::bitcoin::{Address, Amount};
 ```
 
-We can now populate some variables: the available amount and
-the utxo, the recipient's address and the amount we want to send.
+Note that you're passing `list_unspent` five variables. The first four (`minconf`, `maxconf`, `addresses`, and `include_unsafe`) aren't used here. The fifth is `query_options`, which we haven't used before, but has some powerful filtering options, including the ability to only look at UTXOs with a certain minimum (or maximum) value.
 
+### 2. Populate Variables
+
+To begin populating the variables that you'll need to create a new transaction, you create the input from the `txid` and the `vout` of the UTXO that you selected:
 ```rust
-let unspent_amount = selected_tx.amount;
-
 let selected_utxos = json::CreateRawTransactionInput {
-txid: selected_tx.txid,
-vout: selected_tx.vout,
-sequence: None,
+    txid: selected_tx.txid,
+    vout: selected_tx.vout,
+    sequence: None,
 };
-
-let recipient = Address::from_str("bcrt1q6rhpng9evdsfnn833a4f4vej0asu6dk5srld6x").unwrap();
-println!("recipient: {:?}", recipient);
-
+```
+Next, you can calculate the amount you're going to spend by subtracting a mining fee from the funds in the UTXO:
+```
 // send all bitcoin in the UTXO except a minor value which will be paid to miners
+let unspent_amount = selected_tx.amount;
 let amount = unspent_amount - Amount::from_btc(0.00001).unwrap();
-
+```
+Finally, you can create a hash map of the address and the amount to form the output:
+```
 let mut output = HashMap::new();
 output.insert(
-"bcrt1q6rhpng9evdsfnn833a4f4vej0asu6dk5srld6x".to_string(),
-amount,
+    myaddress.to_string(),
+    amount,
 );
 ```
-
-Another trait is necessary for the output variable: HashMap. It allows us to store
-values by key which we need to represent `{address : amount}` information.
+Another trait is necessary for the output variable: `HashMap`. It allows you to store
+values by key, which you need to represent `{address : amount}` information.
 
 ```rust
 use std::collections::HashMap;
 ```
 
-We are ready to create a raw transaction:
+### 3. Create Raw Transaction
 
+You are ready to create a raw transaction:
 ```rust
 let unsigned_tx = rpc
-.create_raw_transaction(&[selected_utxos], &output, None, None)
-.unwrap();
+    .create_raw_transaction(&[selected_utxos], &output, None, None)
+    .unwrap();
+```
+### 4. Sign Transaction
 
-println!("unsigned tx {:#?}", unsigned_tx);
+Signing your transaction can be done with a simple use of `sign_raw_transaction_with_wallet`:
+```rust
+let signed_tx = rpc
+    .sign_raw_transaction_with_wallet(&unsigned_tx, None, None)
+    .unwrap();
+
+println!("signed tx {:?}", signed_tx.transaction().unwrap());
 ```
 
-Here it is:
+### 5. Send Transaction
 
-```vim
+Finally, you can broadcast the transaction:
+
+```rust
+let txid_sent = rpc
+    .send_raw_transaction(&signed_tx.transaction().unwrap())
+    .unwrap();
+
+println!("{:?}", txid_sent);
+```
+
+### Run Your Code
+
+You can now run the complete code from the [src](src/17_5_main-sendtx.rs).
+
+```
+$ cargo run
+   Compiling btc_test v0.1.0 (/home/standup/btc_test)
+warning: unused variable: `unspent_amount`
+  --> src/main.rs:86:9
+   |
+86 |     let unspent_amount = selected_tx.amount;
+   |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_unspent_amount`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: 1 warning emitted
+
+    Finished dev [unoptimized + debuginfo] target(s) in 2.11s
+     Running `target/debug/btc_test`
+Balance: 0.01031434 BTC
+address: tb1qx5jz36xgt9q2rkh4daee8ewfj0g5z05v8qsua2
+selected unspent transaction: ListUnspentResultEntry {
+    txid: 84207ffec658ae29ad1fdd330d8a13613303c3cf281ce628fadeb7636ffb535e,
+    vout: 1,
+    address: Some(
+        tb1qrcf8c29966tvqxhwrtd2se3rj6jeqtll3r46a4,
+    ),
+    label: None,
+    redeem_script: None,
+    witness_script: None,
+    script_pub_key: Script(OP_0 OP_PUSHBYTES_20 1e127c28a5d696c01aee1adaa8662396a5902fff),
+    amount: Amount(1029734 satoshi),
+    confirmations: 1246,
+    spendable: true,
+    solvable: true,
+    descriptor: Some(
+        "wpkh([ce0c7e14/0\'/1\'/26\']02c581259ba7e6aef6d7ea23adb08f7c7f10c4c678f2e097a4074639e7685d4805)#j3pctfhf",
+    ),
+    safe: true,
+}
 unsigned tx Transaction {
     version: 2,
     lock_time: 0,
     input: [
         TxIn {
             previous_output: OutPoint {
-                txid: 34e283eb5b52c66aba9766bdda46eb038bc1138e992b593c22f7cbf1d2e9ba10,
-                vout: 0,
+                txid: 84207ffec658ae29ad1fdd330d8a13613303c3cf281ce628fadeb7636ffb535e,
+                vout: 1,
             },
             script_sig: Script(),
             sequence: 4294967295,
@@ -354,42 +343,20 @@ unsigned tx Transaction {
     ],
     output: [
         TxOut {
-            value: 624999000,
-            script_pubkey: Script(OP_0 OP_PUSHBYTES_20 d0ee19a0b9636099ccf18f6a9ab3327f61cd36d4),
+            value: 1028734,
+            script_pubkey: Script(OP_0 OP_PUSHBYTES_20 352428e8c85940a1daf56f7393e5c993d1413e8c),
         },
     ],
 }
+signed tx Transaction { version: 2, lock_time: 0, input: [TxIn { previous_output: OutPoint { txid: 84207ffec658ae29ad1fdd330d8a13613303c3cf281ce628fadeb7636ffb535e, vout: 1 }, script_sig: Script(), sequence: 4294967295, witness: [[48, 68, 2, 32, 98, 230, 199, 113, 156, 242, 158, 42, 148, 229, 239, 44, 9, 226, 127, 219, 72, 51, 26, 135, 44, 212, 179, 200, 213, 63, 56, 167, 0, 55, 236, 235, 2, 32, 41, 43, 30, 109, 60, 162, 124, 67, 20, 126, 4, 107, 124, 95, 9, 200, 132, 246, 147, 235, 176, 55, 59, 45, 190, 18, 211, 201, 143, 62, 163, 36, 1], [2, 197, 129, 37, 155, 167, 230, 174, 246, 215, 234, 35, 173, 176, 143, 124, 127, 16, 196, 198, 120, 242, 224, 151, 164, 7, 70, 57, 231, 104, 93, 72, 5]] }], output: [TxOut { value: 1028734, script_pubkey: Script(OP_0 OP_PUSHBYTES_20 352428e8c85940a1daf56f7393e5c993d1413e8c) }] }
+b0eda3517e6fac69e58ae315d7fe7a1981e3a858996cc1e3135618cac9b79d1a
 ```
 
-Finally, we can sign and broadcast our transaction:
+## Summary: Accessing Bitcoind with Rust
 
-```rust
-// sign transaction
-let signed_tx = rpc
-.sign_raw_transaction_with_wallet(&unsigned_tx, None, None)
-.unwrap();
+`bitcoincore-rpc` is a simple and robust crate that will allow you to interact with Bitcoin RPC using Rust. However, as of this writing it has fallen behind Bitcoin Core, which might cause some issues with usage.
 
-println!("singed tx {:?}", signed_tx.transaction().unwrap());
+## What's Next?
 
-// broadcast transaction
-let txid_sent = rpc
-.send_raw_transaction(&signed_tx.transaction().unwrap())
-.unwrap();
+Learn more about "Talking to Bitcoin in Other Languages" in [17.6: Accessing Bitcoin with Swift](17_6_Accessing_Bitcoind_with_Swift.md).
 
-println!("{:?}", txid_sent);
-```
-
-```vim
-singed tx Transaction { version: 2, lock_time: 0, input: [TxIn { previous_output: OutPoint { txid: 34e283eb5b52c66aba9766bdda46eb038bc1138e992b593c22f7cbf1d2e9ba10, vout: 0 }, script_sig: Script(), sequence: 4294967295, witness: [[48, 68, 2, 32, 85, 113, 140, 197, 142, 140, 122, 26, 174, 71, 94, 152, 76, 104, 5, 111, 113, 192, 179, 1, 58, 6, 27, 141, 18, 50, 217, 53, 154, 26, 5, 98, 2, 32, 53, 148, 139, 57, 234, 151, 71, 149, 134, 202, 160, 136, 15, 144, 103, 232, 134, 37, 136, 184, 117, 159, 235, 92, 59, 102, 197, 213, 67, 64, 89, 207, 1], [3, 4, 197, 157, 36, 136, 177, 169, 182, 219, 121, 187, 251, 153, 207, 165, 173, 117, 142, 93, 181, 107, 185, 97, 10, 168, 210, 148, 67, 127, 246, 229, 12]] }], output: [TxOut { value: 624999000, script_pubkey: Script(OP_0 OP_PUSHBYTES_20 d0ee19a0b9636099ccf18f6a9ab3327f61cd36d4) }] }
-5d2f1b7c6fc29967d820532c46200b35f62b6e6f8da614ae86922c20167f6d0e
-```
-
-## For More Information
-
-You can now mine a block and try to see for yourself if the last transaction is really in the block.
-If you need help look at the crate's [documentation](https://crates.io/crates/bitcoincore-rpc) or run some tests in its [repository](https://github.com/rust-bitcoin/rust-bitcoincore-rpc).
-
-## Summary
-
-We have shown how to access `bitcoind` in `Rust` and send a transaction
-on the `Bitcoin Regtest Network` explaining all the steps required.

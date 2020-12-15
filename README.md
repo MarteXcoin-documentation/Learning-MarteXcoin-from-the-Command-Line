@@ -1,4 +1,7 @@
-# Learning Bitcoin (and Lightning) from the Command Line
+# Learning Bitcoin from the Command Line
+### _by Christopher Allen and Shannon Appelcline_
+
+![](https://www.blockchaincommons.com/images/projects/lbtc-screen.png)
 
 Learning Bitcoin from the Command Line is a tutorial for working with Bitcoin (and Lightning) that teaches direct interaction with the servers themselves, as the most robust and secure way to begin cryptocurrency work.
 
@@ -8,13 +11,12 @@ _This tutorial assumes that you have some minimal background of how to use the c
 
 ## Table of Contents
 
-* [0.0: Introduction to Programming with Bitcoin Core and Lightning](00_0_Introduction.md)
-
 ### PART ONE: PREPARING FOR BITCOIN
 
 **Status:** Finished. Updated for 0.20.
 
-* [1.0: Introducing Bitcoin](01_0_Introducing_Bitcoin.md)
+* [1.0: Introduction to Programming with Bitcoin Core and Lightning](01_0_Introduction.md)
+    * [Interlude: Introducing Bitcoin](01_1_Introducing_Bitcoin.md)
 * [2.0: Setting Up a Bitcoin-Core VPS](02_0_Setting_Up_a_Bitcoin-Core_VPS.md)
   * [2.1: Setting Up a Bitcoin-Core VPS with Bitcoin Standup](02_1_Setting_Up_a_Bitcoin-Core_VPS_with_StackScript.md)
   * [2.2: Setting Up a Bitcoin-Core Machine via Other Means](02_2_Setting_Up_Bitcoin_Core_Other.md)
@@ -95,13 +97,43 @@ _This tutorial assumes that you have some minimal background of how to use the c
 
 ### PART FIVE: PROGRAMMING WITH RPC
 
-**Status:** What's up here is finished, though work progresses on additional chapters, below.
+**Status:** Finished.
 
 * [15.0: Talking to Bitcoind with C](15_0_Talking_to_Bitcoind.md)
   * [15.1: Accessing Bitcoind in C with RPC Libraries](15_1_Accessing_Bitcoind_with_C.md)
   * [15.2: Programming Bitcoind in C with RPC Libraries](15_2_Programming_Bitcoind_with_C.md)
   * [15.3: Receiving Notifications in C with ZMQ Libraries](15_3_Receiving_Bitcoind_Notifications_with_C.md)
+* [16.0: Programming Bitcoin with Libwally](16_0_Programming_with_Libwally.md)
+   * [16.1: Setting Up Libwally](16_1_Setting_Up_Libwally.md)
+   * [16.2: Using BIP39 in Libwally](16_2_Using_BIP39_in_Libwally.md)
+   * [16.3: Using BIP32 in Libwally](16_3_Using_BIP32_in_Libwally.md) 
+   * [16.4: Using PSBTs in Libwally](16_4_Using_PSBTs_in_Libwally.md)
+   * [16.5: Using Scripts in Libwally](16_5_Using_Scripts_in_Libwally.md)
+   * [16.6: Using Other Functions in Libwally](16_6_Using_Other_Functions_in_Libwally.md)
+   * [16.7: Integrating Libwally and Bitcoin-CLI](16_7_Integrating_Libwally_and_Bitcoin-CLI.md)
+* [17.0: Talking to Bitcoind with Other Languages](17_0_Talking_to_Bitcoind_Other.md)
+  * [17.1: Accessing Bitcoind with Go](17_1_Accessing_Bitcoind_with_Go.md)
+  * [17.2: Accessing Bitcoind with Java](17_2_Accessing_Bitcoind_with_Java.md)
+  * [17.3: Accessing Bitcoind with Node JS](17_3_Accessing_Bitcoind_with_NodeJS.md)
+  * [17.4: Accessing Bitcoind with Python](17_4_Accessing_Bitcoind_with_Python.md)
+  * [17.5: Accessing Bitcoind with Rust](17_5_Accessing_Bitcoind_with_Rust.md)
+  * [17.6: Accessing Bitcoind with Swift](17_6_Accessing_Bitcoind_with_Swift.md)
 
+### PART SIX: USING LIGHTNING-CLI
+
+**Status:** Finished.
+
+* [18.0: Understanding Your Lightning Setup](18_0_Understanding_Your_Lightning_Setup.md)
+  * [18.1: Verifying Your c-lightning Setup](18_1_Verifying_Your_Lightning_Setup.md)
+  * [18.2: Knowing Your c-lightning Setup](18_2_Knowing_Your_lightning_Setup.md)
+     * [Interlude: Accessing a Second Lightning Node](18_2__Interlude_Accessing_a_Second_Lightning_Node.md)
+  * [18.3: Creating a Lightning Channel](18_3_Setting_Up_a_Channel.md)
+* [19.0: Using Lightning](19_0_Using_Lightning.md)
+  * [19.1: Generating a Payment Request](19_1_Generate_a_Payment_Request.md)
+  * [19.2: Paying an Invoice](19_2_Paying_a_Invoice.md)
+  * [19.3: Closing a Lighnting Channel]((19_3_Closing_a_Channel.md))
+  * [19.4: Expanding the Lightning Network](19_4_Lightning_Network_Review.md)
+   
 ### APPENDICES
 
 **Status:** Finished.
@@ -110,51 +142,7 @@ _This tutorial assumes that you have some minimal background of how to use the c
   * [Appendix I: Understanding Bitcoin Standup](A1_0_Understanding_Bitcoin_Standup.md)
   * [Appendix II: Compiling Bitcoin from Source](A2_0_Compiling_Bitcoin_from_Source.md)
   * [Appendix III: Using Bitcoin Regtest](A3_0_Using_Bitcoin_Regtest.md)
-
-_This is the end of the polished second-edition course as it currently stands. We are looking for reviews on chapters 0-14 above. Thank you for your help & support!_
-
-<hr>
-
-_We want to expand this course to also introduce programming with RPC and finally talk about Lightning. The material below is all in process. We'll move it "above the line" for review and learning when we finish it up._
-
-### PART FIVE: PROGRAMMING WITH RPC
-
-**Status:** VERY Unfinished. Writing Libwally chapter, regularizing other languages chapter; and deciding what to do with Swift
-
-* [16.0: Programming Bitcoin with Libwally](16_0_Programming_with_Libwally.md) — Needs edit for final content of chapter
-   * [16.1: Setting Up Libwally](16_1_Setting_Up_Libwally.md) — Needs edit
-   * [16.2: Using BIP39 in Libwally](16_2_Using_BIP39_in_Libwally.md) — Needs edit
-   * [16.3: Using BIP32 in Libwally](16_3_Using_BIP32_in_Libwally.md) — Needs edit
-   * [16.4: Using PSBTs in Libwally](16_4_Using_PSBTs_in_Libwally.md) — Needs edit
-   * [16.5: Using Scripts in Libwally](16_5_Using_Scripts_in_Libwally.md) — Needs edit
-   * [16.6: Using Other Functions in Libwally](16_6_Using_Other_Functions_in_Libwally.md) — Needs edit
-   * [16.7: Integrating Libwally and Scripts](16_7_Integrating_Libwally_and_Scripts.md)  — In process
-* 17.0: Talking to Bitcoind with Other Languages
-  * [17.1: Accessing Bitcoind with Go](17_1_Accessing_Bitcoind_with_Go.md)
-  * [17.2: Accessing Bitcoind with Java](17_2_Accessing_Bitcoind_with_Java.md)
-  * [17.3: Accessing Bitcoind with Node JS](17_3_Accessing_Bitcoind_with_NodeJS.md)
-  * [17.4: Accessing Bitcoind with Python](17_4_Accessing_Bitcoind_with_Python.md)
-  * [17.5: Accessing Bitcoind with Rust](17_5_Accessing_Bitcoind_with_Rust.md)
-  * [17.6: Accessing Bitcoind with Swift]
   
-### PART SIX: USING LIGHTNING-CLI
-
-**Status:** Unfinished. Requires renumbering [currently all listed as chapter 13], editing
-
-(At this point, I'm assuming that Lightning will be integrated into Standup, at which point we just need to tech how to use it at a pretty basic level.)
-
-* 18.0: Understanding Lightning
-  * 18.1: Verifying Your Lightning Setup
-  * 18.2: Knowing Your Lightning Setup
-  * 18.3: Setting up a Channel
-* 19.0: Using Lightning
-  * 19.1: Generating a Payment Request
-  * 19.2: Paying an Invoice
-  * 19.3: Closing a Channel
-* 20.0: Talking to Lightningd with C
-
-> _Some good docs from one of the developers are here: https://diyhpl.us/wiki/transcripts/blockstream-webinars/2019-07-31-rusty-russell-getting-started-with-c-lightning/._
-   
 ## Status - Work in Progress
 
 Learning Bitcoin from the Command Line  is currently under active development and its writing in progress. Current chapters are functional, but need to be updated to more modern versions of Bitcoin-Core. Additional chapters also need to be written to fill out our intended scope.
@@ -177,9 +165,15 @@ To financially support further development of `$projectname` and other projects,
 
 We encourage public contributions through issues and pull requests! Please review [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our development process. All contributions to this repository require a GPG signed [Contributor License Agreement](./CLA.md).
 
-### Questions & Support
+### Discussions
 
-As an open-source, open-development community, Blockchain Commons does not have the resources to provide direct support of our projects. If you have questions or problems, please use this repository's [issues](./issues) feature. Unfortunately, we can not make any promises on response time.
+The best place to talk about Blockchain Commons and its projects is in our GitHub Discussions areas.
+
+[**Blockchain Commons Discussions**](https://github.com/BlockchainCommons/Community/discussions). For developers, interns, and patrons of Blockchain Commons, please use the discussions area of the [Community repo](https://github.com/BlockchainCommons/Community) to talk about general Blockchain Commons issues, the intern program, or topics other than the [Gordian System](https://github.com/BlockchainCommons/Gordian/discussions) or the [wallet standards](https://github.com/BlockchainCommons/AirgappedSigning/discussions), each of which have their own discussion areas.
+
+### Other Questions & Problems
+
+As an open-source, open-development community, Blockchain Commons does not have the resources to provide direct support of our projects. Please consider the discussions area as a locale where you might get answers to questions. Alternatively, please use this repository's [issues](./issues) feature. Unfortunately, we can not make any promises on response time.
 
 If your company requires support to use our projects, please feel free to contact us directly about options. We may be able to offer you a contract for support from one of our contributors, or we might be able to point you to another entity who can offer the contractual support that you need.
 

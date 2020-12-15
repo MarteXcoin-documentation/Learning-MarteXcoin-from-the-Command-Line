@@ -1,7 +1,5 @@
 # 12.1: Using Script Conditionals
 
-> :information_source: **NOTE:** This is a draft in progress, so that I can get some feedback from early reviewers. It is not yet ready for learning.
-
 There's one final aspect of Bitcoin Scripting that's crucial to unlocking its true power: conditionals allow you create various paths of execution.
 
 ## Understand Verify

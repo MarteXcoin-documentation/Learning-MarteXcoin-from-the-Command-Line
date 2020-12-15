@@ -1,7 +1,5 @@
 # 2.1: Setting Up a Bitcoin-Core VPS with Bitcoin Standup
 
-> :information_source: **NOTE:** This is a draft in progress, so that I can get some feedback from early reviewers. It is not yet ready for learning.
-
 This document explains how to set up a VPS (Virtual Private Sever) to run a Bitcoin node on Linode.com, installed using an automated StackScript from the [Bitcoin Standup project](https://github.com/BlockchainCommons/Bitcoin-Standup-Scripts). You just need to enter a few commands and boot your VPS. Almost immediately after you boot, you'll find find your new Bitcoin node happily downloading blocks.
 
 > :warning: **WARNING:** Don’t use a VPS for a bitcoin wallet with significant real funds; see http://blog.thestateofme.com/2012/03/03/lessons-to-be-learned-from-the-linode-bitcoin-incident/ . It is  very nice to be able experiment with real bitcoin transactions on a live node without tying up a self-hosted server on a local network. It's also useful to be able to use an iPhone or iPad to communicate via SSH to your VPS to do some simple bitcoin tasks. But a higher level of safety is required for significant funds.
@@ -52,7 +50,7 @@ You're now ready to create a node based on the Stackscript.
    * **Fully Qualified Hostname.** If you're going to include this VPS as part of a network with full DNS records, type in the hostname with its domain. For example, "mybtctest.mydomain.com". Otherwise, just repeat the short hostname and add ".local", for example "mybtctest.local".
 3. Enter the password for the "standup" user.
 4. Choose an Installation Type in the advanced options. 
-   * **Installation Type.** This is likely "Mainnet" or "Pruned Mainnet" if you are setting up a node for usage and "Pruned Testnet" if you're just playing around. See the [Synopsis](#synopsis-bitcoin-installation-types) for more information on these options.
+   * **Installation Type.** This is likely "Mainnet" or "Pruned Mainnet" if you are setting up a node for usage and "Testnet" or "Pruned Testnet" if you're just playing around. See the [Synopsis](#synopsis-bitcoin-installation-types) for more information on these options. (Note that if you plan to try out the Lightning chapters, you'll probably want to use an Unpruned node, as working with Pruned nodes on Lightning is iffy. See [§18.1](18_1_Verifying_Your_Lightning_Setup.md#compiling-the-source-code) for the specifics.)
 5. Fill in any other appropriate advanced options.
    * **X25519 Public Key.** This is a public key to add to Tor's list of authorized clients. If you don't use it, anyone who gets the QR code for your node can access it. You'll get this public key from whichever client you're using to connect to your node. For example, if you use [FullyNoded 2](https://github.com/BlockchainCommons/FullyNoded-2), you can go to its settings and "Export Tor V3 Authentication Public Key" for use here.
   * **SSH Key.** Copy your local computer's SSH key here; this allows you be able to automatically login in via SSH to the standup account. If you haven't setup an SSH key on your local computer yet, there are good instructions for it on [Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).  You may also want to add your SSH key into your Linode LISH (Linode Interactive Shell) by going to your "Linode Home Page / My Preferences / LISH Settings /  LISH Keys". Using an SSH key will give you a simpler and safer way to log in to your server.
@@ -64,6 +62,10 @@ You're now ready to create a node based on the Stackscript.
 *The remaining questions all have to do with the mechanics of the VPS deployment and should be left as they are with one exception: bump the Swap Disk from 256MB to 512MB, to ensure that you have enough memory to download the blockchain._
 
 Finally, you'll need to fill in a root password, which will be the password used for the root account.
+
+### Choose Other Standup Options
+
+Blockchain Commons is currently in the process of expandings its Bitcoin Standup Scripts with options to install Lightning and other Bitcoin apps of note. Take a look at any extra options, and see if they're things that you'd like to play with. In particular, if Lightning is an option, we suggest installing it, because it will make [Chapter 18](18_0_Understanding_Your_Lightning_Setup.md) and [Chapter 19](19_0_Using_Lightning.md) much easier. 
 
 ### Choose a Linode Plan
 
@@ -243,7 +245,7 @@ You have a few options for what's next:
 
 ## Synopsis: Bitcoin Installation Types
 
-**Mainnet.** This will download the entirety of the Bitnet blockchain. That's 280G of data (and getting more every day).
+**Mainnet.** This will download the entirety of the Bitnet blockchain. That's 280G of data (and getting more every day). 
 
 **Pruned Mainnet.** This will cut the blockchain you're storing down to just the last 550 blocks. If you're not mining or running some other Bitcoin service, this should be plenty for validation.
 

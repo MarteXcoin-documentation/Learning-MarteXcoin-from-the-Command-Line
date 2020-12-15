@@ -1,6 +1,12 @@
-# TODOs
+# Todo List for v2.0 of Learning Bitcoin
 
 This is a list of potential (or planned) TODO items for "Learning Bitcoin from the Command Line". Many are drawn from issues found at the previous locale of this repo.
+
+**Updating Work Begun:** 6/10
+**Updating Work Done:** 10/27
+**Pending Issues:** Third-party edit of whole course
+
+Please also see [TODO-30.md](the v3.0 TODO) for the next iteration of the course.
 
 ## 1. Integrate with Bitcoin-Standup
 
@@ -75,38 +81,57 @@ Add and document the following new concepts:
 14. <strike>Consider HWI.</strike> **7/14**
   * <strike>Write 7.3: Using HWI</strike> **7/14**
   * <strike>Edit All of Chapter 6-8</strike> **7/14**
-15. Consider splitting up Chapter 6 (definitely if we get an HWI chapter)
+15. <strike>Consider splitting up Chapter 6 (definitely if we get an HWI chapter)</strike>
    * <strike>Break apart Chapter 6</strike> **7/2**
    * <strike>Rewrite all section links in early chapters (1-5, 6, 8)</strike> **7/7**
    * <strike>Update Script Chapters</strike> **7/15**
    * <strike>Update Tor Chapter</strike> **7/22**
-   * Update Programming Chapters
+   * <strike>Update Programming Chapters</strike>
    
 ## 5. Finish Later Chapters
 
 16. <strike>Edit & Integrate Tor Chapter. </strike> **7/22**
-17. Edit & Integrate all "C" work
-   * <stirke>Edit & Update Chapter 15</strike> **8/5**
-   * Write the Libwally section
+17. <strike>Edit & Integrate all "C" work</strike> **8/5** - **8/26**
+   * <strike>Edit & Update Chapter 15</strike> **8/5**
+   * <strike>Write the Libwally section</strike> **8/5** - **8/26**
       * <strike>16.1: Intro</strike> **8/5**
       * <strike>16.2: BIP39</strike> **8/11**
       * <strike>16.3: BIP32</strike> **8/11**
       * <strike>16.4: PSBTs</strike> **8/12**
       * <strike>16.5: Scripts</strike> **8/12**
-      * 16.6: Other Functions
-      * 16.7: Integration
-   * Like the seedtool and keytool, but simpler
-18. Edit & Integrate all "Other Languages" work
-19. Edit & Integrate Appendices work
+      * <strike>16.6: Other Functions</strike> **8/18**
+      * <strike>16.7: Integration</strike> **8/25**, **8/26**
+18. <strike>Edit & Integrate all "Other Languages" work</strike> **9/1**-**9/30**
+   * <strike>Edit 17.1: Go</strike> **9/1**
+   * <strike>Edit 17.2: Java</strike> **9/2**
+   * <strike>Edit 17.3: NodeJS</strike> **9/2**
+   * <strike>Edit 17.4: Python</strike> **9/8**
+   * <strike>Edit 17.5: Rust</strike> **9/8**
+   * <strike>Write 17.6: Swift</strike> **9/29**
+      * <strike>Setup Swift Environment</strike> **9/9**, **9/15**
+      * <strike>Document Swift Environment</strike> **9/23**
+      * <strike>Do Basic RPC Commands</strike> **9/29**
+      * <strike>Look at Wallets</strike> **9/29**
+      * <strike>Create Transaction</strike> **9/29**
+      * <strike>First edit of Swift</strike> **9/30**
+   * <strike>Edit All of 17</strike> **9/30**
+      * <strike>Finalize Naming of Src</strike> **9/30**
+      * <strike>Full Edit of 17.1-17.6</strike> **9/30**
+19. <strike>Edit & Integrate Appendices work</strike> **7/27**, **8/4**
    * <strike>Edit & Integrate A2: Compiling</strike> **7/27**
-   * Edit & Integrate A3: RegTest
-20. Edit & Integrate Lightning Chapters.
-21. Write or request Lightning/C chapter
+   * <strike>Edit & Integrate A3: RegTest</strike> **8/4**
+20. <strike>Edit & Integrate Lightning Chapters</strike> **10/13**, **10/14**
+   * <strike> Figure out how/if to set up a pruned c-lightning</strike> **10/13**
 
 ## 6. Finalize Book
 
-X. Take out warnings for all old chapters
-X. Add new first chapter, indicating places to start for people of different levels
-   * Know CL? Have a node? Need to read the new stuff? Skip Lightning?
-   * Decide where to place current first chapter in relation to that (before? after? glossary?)
-22. Re-edit everything
+21. <strike>Take out warnings for all old chapters</strike> **10/20**
+22. <strike>Add new first chapter, indicating places to start for people of different levels</strike> **10/20**
+23. <strike>Add other Bitcoin standup options to Ch. 2</strike> **10/27**
+24. <strike>Move an coding appendices (e.g., JQ interlude) to src code directory </strike> **10/20**
+25. <strike>Write letter about new edition</strike> **10/27**
+26. <strike>Write tweetstorm</strike> **10/27**
+
+## 7. Additional Support
+
+27. Full edit of book (intern?)

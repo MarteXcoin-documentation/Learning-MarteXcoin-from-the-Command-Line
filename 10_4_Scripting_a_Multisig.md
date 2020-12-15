@@ -1,7 +1,5 @@
 # 10.4: Scripting a Multisig
 
-> :information_source: **NOTE:** This is a draft in progress, so that I can get some feedback from early reviewers. It is not yet ready for learning.
-
 Before we close out this intro to P2SH scripting, it's worth examining a more realistic example. Ever since [§6.1](06_1_Sending_a_Transaction_to_a_Multisig.md), we've been casually saying that the `bitcoin-cli` interface wraps its multisig transaction in a P2SH transaction. In fact, this is the standard methodology for creating multisigs on the Blockchain. Here's how that works, in depth.
 
 ## Understand the Multisig Code
@@ -148,4 +146,4 @@ Multisigs are a standard transaction type, but they're a bit cumbersome to use, 
 
 ## What's Next?
 
-Continue "Embedding Bitcoin Scripts" with [§10.5: Spending a P2SH Transaction](10_5_Scripting_a_Segwit_Script.md)
+Continue "Embedding Bitcoin Scripts" with [§10.5: Scripting a Segwit Script](10_5_Scripting_a_Segwit_Script.md)
