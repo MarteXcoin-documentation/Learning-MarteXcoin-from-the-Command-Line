@@ -1,4 +1,4 @@
-# Chapter One: Introduction to Learning Bitcoin Core (& Lightning) from the Command Line
+# Chapter One: Introduction to Learning MarteX Core (& Lightning) from the Command Line
 
 ## Introduction
 
