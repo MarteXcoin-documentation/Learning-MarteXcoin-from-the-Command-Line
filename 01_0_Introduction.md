@@ -51,13 +51,13 @@ Obviously, you're working through this course because you're interested in Bitco
 
 ## How to Support this Course
 
-* Please use [Issues](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/issues) for any questions. Blockchain Commons does not have an active support team, and so we can't address individual problems or queries, but we will look over them in time, and use them to improve future iterations of the course.
-* Please use [PRs](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/pulls) for any fixes of typos or incorrect (or changed) commands. For command-line or technical changes, it's very helpful if you also use the PR comments to explain why you did what you did, so that we don't have to research it.
-* Please Use Our [Community discussions area](https://github.com/BlockchainCommons/Community/discussions) for talking about careers and skills. Blockchain Commons occasionally offers internships, as discussed in our Community repo.
-* Please [become a patron](https://github.com/sponsors/BlockchainCommons) if you find this course helpful or if you want to help educate the next generation of blockchain programmers.
+* Please use [Issues](https://github.com/MarteXcoin-documentation/Learning-MarteXcoin-from-the-Command-Line/issues) for any questions. MarteXcoin Documentation does not have an active support team, and so we can't address individual problems or queries, but we will look over them in time, and use them to improve future iterations of the course.
+* Please use [PRs](https://github.com/MarteXcoin-documentation/Learning-MarteXcoin-from-the-Command-Line/pulls) for any fixes of typos or incorrect (or changed) commands. For command-line or technical changes, it's very helpful if you also use the PR comments to explain why you did what you did, so that we don't have to research it.
+* Please Use Our [Community discussions area](https://github.com/MarteXcoin-documentation/Learning-MarteXcoin-from-the-Command-Line/discussions) for talking about other things.
+
 
 ## What's Next?
 
-If you'd like a basic introduction to Bitcoin, public-key cryptography, ECC, blockchains, and Lightning, read the [Introducing Bitcoin](01_1_Introducing_Bitcoin.md) interlude. 
+If you'd like a basic introduction to Bitcoin, public-key cryptography, ECC, blockchains, and Lightning, read the [Introducing Bitcoin](01_1_Introducing_MarteXcoin.md) interlude. 
 
-Otherwise, if you're ready to dive into the course, go to [Setting Up a Bitcoin-Core VPS](02_0_Setting_Up_a_Bitcoin-Core_VPS.md).
+Otherwise, if you're ready to dive into the course, go to [Setting Up a MarteX-Core VPS](02_0_Setting_Up_a_MarteX-Core_VPS.md).
