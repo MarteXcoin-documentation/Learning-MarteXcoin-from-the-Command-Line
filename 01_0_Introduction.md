@@ -1,12 +1,12 @@
-# Chapter One: Introduction to Learning MarteX Core
+# Chapter One: Introduction to Learning MarteXcoin Core (& masternode) from the Command Line
 
 ## Introduction
 
 The ways that we make payments for goods and services has been changing dramatically over the last several decades. Where once all transactions were conducted through cash or checks, now various electronic payment methods are the norm. However, most of these electronic payments still occur through centralized systems, where credit card companies, banks, or even internet-based financial institutions like Paypal keep long, individually correlated lists of transactions and have the power to censor transactions that they don't like.
 
-These centralization risks were some of the prime catalysts behind the creation of cryptocurrencies, the first and most successful of which is Bitcoin. Bitcoin offers pseudonymity; it makes it difficult to correlate transactions; and it makes censorship by individual entities all but impossible. These advantages have made it one of the quickest growing currencies in the world. That growth in turn has made Bitcoin into a going concern among entrepreneurs and developers, eager to create new services for the Bitcoin community.
+These centralization risks were some of the prime catalysts behind the creation of cryptocurrencies, the first and most successful of which is Bitcoin. Bitcoin offers pseudonymity; it makes it difficult to correlate transactions; and it makes censorship by individual entities all but impossible. These advantages have made it one of the quickest growing currencies in the world. That growth in turn has made Bitcoin into a going concern among entrepreneurs and developers, eager to create new services for the Bitcoin community. MarteXcoin is a fork of Bitcoin and is a competitor of this offering better features.
 
-If you're one of those entrepreneurs or developers, then this course is for you, because it's all about learning to program MarteXcoin. It's an introductory course that explains all the nuances and features of MarteXcoin as it goes. It also takes a very specific tack, by offering lessons in how to work _directly_ with MarteX Core and with the c-lightning server using their RPC interfaces.
+If you're one of those entrepreneurs or developers, then this course is for you, because it's all about learning to program MarteXcoin. It's an introductory course that explains all the nuances and features of MarteXcoin as it goes. It also takes a very specific tack, by offering lessons in how to work _directly_ with MarteX Core and with the masternode server using their RPC interfaces.
 
 Why not use some of the more fully featured libraries found in various programming languages? Why not create your own from scratch? It's because working with cryptocurrency is dangerous. There are no safety nets. If you accidentally overpay your fees or lose a signing key or create an invalid transaction or make any number of potential mistakes, then your cryptocurrency will been gone forever. Much of that responsibility will, of course, lie with you as a cryptocurrency programmer, but it can be minimized by working with the most robust, secure, and safe cryptocurrency interfaces around, the ones created by the cryptocurrency programming teams themselves: ``bitcoind`` and ``lightningd``.
 
@@ -51,13 +51,13 @@ Obviously, you're working through this course because you're interested in Bitco
 
 ## How to Support this Course
 
-* Please use [Issues](https://github.com/MarteXcoin-documentation/Learning-MarteXcoin-from-the-Command-Line/issues) for any questions. MarteXcoin Documentation does not have an active support team, and so we can't address individual problems or queries, but we will look over them in time, and use them to improve future iterations of the course.
-* Please use [PRs](https://github.com/MarteXcoin-documentation/Learning-MarteXcoin-from-the-Command-Line/pulls) for any fixes of typos or incorrect (or changed) commands. For command-line or technical changes, it's very helpful if you also use the PR comments to explain why you did what you did, so that we don't have to research it.
-* Please Use Our [Community discussions area](https://github.com/MarteXcoin-documentation/Learning-MarteXcoin-from-the-Command-Line/discussions) for talking about other things.
-
+* Please use [Issues](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/issues) for any questions. Blockchain Commons does not have an active support team, and so we can't address individual problems or queries, but we will look over them in time, and use them to improve future iterations of the course.
+* Please use [PRs](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/pulls) for any fixes of typos or incorrect (or changed) commands. For command-line or technical changes, it's very helpful if you also use the PR comments to explain why you did what you did, so that we don't have to research it.
+* Please Use Our [Community discussions area](https://github.com/BlockchainCommons/Community/discussions) for talking about careers and skills. Blockchain Commons occasionally offers internships, as discussed in our Community repo.
+* Please [become a patron](https://github.com/sponsors/BlockchainCommons) if you find this course helpful or if you want to help educate the next generation of blockchain programmers.
 
 ## What's Next?
 
-If you'd like a basic introduction to Bitcoin, public-key cryptography, ECC, blockchains, and Lightning, read the [Introducing Bitcoin](01_1_Introducing_MarteXcoin.md) interlude. 
+If you'd like a basic introduction to Bitcoin, public-key cryptography, ECC, blockchains, and Lightning, read the [Introducing Bitcoin](01_1_Introducing_Bitcoin.md) interlude. 
 
-Otherwise, if you're ready to dive into the course, go to [Setting Up a MarteX-Core VPS](02_0_Setting_Up_a_MarteX-Core_VPS.md).
+Otherwise, if you're ready to dive into the course, go to [Setting Up a Bitcoin-Core VPS](02_0_Setting_Up_a_Bitcoin-Core_VPS.md).
