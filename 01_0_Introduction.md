@@ -1,4 +1,4 @@
-# Chapter One: Introduction to Learning MarteXcoin Core (& masternode) from the Command Line teste
+# Chapter One: Introduction to Learning MarteXcoin Core (& masternode) from the Command Line
 
 ## Introduction
 
