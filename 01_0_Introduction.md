@@ -42,12 +42,12 @@ If you have different levels of skill or want to learn different things, you mig
 * If you only care about Bitcoin scripting, jump to [Chapter Nine: Introducing MarteXoin Scripts](09_0_Introducing_MarteXcoin_Scripts.md).
 * If you just want to read about using programming languages, jump to [Chapter Fifteen: Talking to MarteXcoin](15_0_Talking_to_MarteXd.md).
 * If you conversely don't want to do any programming, definitely skip chapters 15-17 while you're reading, and perhaps skip chapters 9-13. The rest of the course should still make sense without them.
-* If you are only interested in Lightning, zap over to [Chapter Eighteen: Understanding Your Lightning Setup](18_0_Understanding_Your_Lightning_Setup.md).
+* If you are only interested in Masternode, zap over to [Chapter Eighteen: Understanding Your Masternode Setup](18_0_Understanding_Your_Masternode_Setup.md).
 * If you want to read the major new content added for v2 of the course (2020), following on v1 (2017), read [§3.5: Understanding the Descriptor](03_5_Understanding_the_Descriptor.md), [§4.6: Creating a SegWit Transaction](04_6_Creating_a_Segwit_Transaction.md), [Chapter 7: Expanding Bitcoin with PSBTs](07_0_Expanding_Bitcoin_Transactions_PSBTs.md), [§9.5: Scripting a P2WPKH](09_5_Scripting_a_P2WPKH.md), [§10.5: Scripting a SegWit Script](10_5_Scripting_a_Segwit_Script.md), [Chapter 14: Using Tor](14_0_Using_Tor.md), [Chapter 15: Talking to Bitcoind with C](15_0_Talking_to_Bitcoind.md), [Chapter 16: Programming with Libwally](16_0_Programming_with_Libwally.md), [Chapter Seventeen: Talking to Bitcoind with Other Languages](17_0_Talking_to_Bitcoind_Other.md), [Chapter Eighteen: Understanding ](18_0_Understanding_Your_Lightning_Setup.md), and [Chapter Nineteen: Using Lightning](19_0_Using_Lightning.md).
 
 ## Why to Use this Course
 
-Obviously, you're working through this course because you're interested in Bitcoin. Besides imparting basic knowledge, it's also helped readers to join (or create) open-source projects and to get entry-level jobs in Bitcoin programming. A number of Blockchain Commons' interns learned about Bitcoin from this course, as have some members of our programming team.
+Obviously, you're working through this course because you're interested in MarteXcoin. Besides imparting basic knowledge, it's also helped readers to join (or create) open-source projects and to get entry-level jobs in MarteXcoin programming.
 
 ## How to Support this Course
 
