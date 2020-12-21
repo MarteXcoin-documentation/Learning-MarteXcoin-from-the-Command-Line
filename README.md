@@ -11,11 +11,11 @@ _This tutorial assumes that you have some minimal background of how to use the c
 
 ## Table of Contents
 
-### PART ONE: PREPARING FOR BITCOIN
+### PART ONE: PREPARING FOR MARTEXCOIN
 
 **Status:** Finished. Updated for 0.20.
 
-* [1.0: Introduction to Programming with MarteXcoin Core and Lightning](01_0_Introduction.md)
+* [1.0: Introduction to Programming with MarteXcoin Core and Masternode](01_0_Introduction.md)
     * [Interlude: Introducing MarteXcoin](01_1_Introducing_MarteXcoin.md)
 * [2.0: Setting Up a MarteXcoin-Core VPS](02_0_Setting_Up_a_MarteXcoin-Core_VPS.md)
   * [2.1: Setting Up a MarteXcoin-Core VPS with MarteXcoin Standup](02_1_Setting_Up_a_MarteXcoin-Core_VPS_with_StackScript.md)
