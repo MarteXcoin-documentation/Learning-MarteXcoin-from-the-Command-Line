@@ -1,5 +1,6 @@
 # Learning MarteXcoin from the Command Line
-### _by Christopher Allen and Shannon Appelcline_
+### _by Christopher Allen and Shannon Appelcline (previous developers)_
+### _by Jetro Costa_
 
 ![](https://www.blockchaincommons.com/images/projects/lbtc-screen.png)
 
@@ -13,7 +14,7 @@ _This tutorial assumes that you have some minimal background of how to use the c
 
 ### PART ONE: PREPARING FOR MARTEXCOIN
 
-**Status:** Finished. Updated for 0.20.
+**Status:** Finished. Updated for 4.0.
 
 * [1.0: Introduction to Programming with MarteXcoin Core and Masternode](01_0_Introduction.md)
     * [Interlude: Introducing MarteXcoin](01_1_Introducing_MarteXcoin.md)
@@ -21,9 +22,9 @@ _This tutorial assumes that you have some minimal background of how to use the c
   * [2.1: Setting Up a MarteXcoin-Core VPS with MarteXcoin Standup](02_1_Setting_Up_a_MarteXcoin-Core_VPS_with_StackScript.md)
   * [2.2: Setting Up a MarteXcoin-Core Machine via Other Means](02_2_Setting_Up_MarteXcoin_Core_Other.md)
 
-### PART TWO: USING BITCOIN-CLI
+### PART TWO: USING MARTEX-CLI
 
-**Status:** Finished. Updated for 0.20.
+**Status:** Finished. Updated for 4.0.
 
 * [3.0: Understanding Your MarteXcoin Setup](03_0_Understanding_Your_MarteXcoin_Setup.md)
   * [3.1: Verifying Your MarteXcoin Setup](03_1_Verifying_Your_MarteXcoin_Setup.md)
