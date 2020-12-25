@@ -2,17 +2,17 @@
 
 Before you can get started programming MarteXcoin , you should have a basic understanding of what they are and how they work. This section provides that overview. Many more definitions will appear within the document itself; this is only intended to lay the foundation.
 
-## About MarteXcoin
+## About MarteX Core
 
-MarteXcoin is a programmatic system that allows for the transfer of the bitcoin currency. It is enabled by a decentralized, peer-to-peer system of nodes, which include full nodes, wallets, and miners. Working together, they ensure that bitcoin transactions are fast and non-repudiable. Thanks to the decentralized nature of the system, these transactions are also censor-resistant and can provide other advantages such as pseudonymity and non-correlation if used well.
+MarteX core is a programmatic system that allows for the transfer of the martexcoin currency. It is enabled by a decentralized, peer-to-peer system of nodes, which include full nodes, wallets, and miners. Working together, they ensure that martexcoin transactions are fast and non-repudiable. Thanks to the decentralized nature of the system, these transactions are also censor-resistant and can provide other advantages such as pseudonymity and non-correlation if used well.
 
-Obviously, MarteXcoin is the heart of this book, but it's also the originator of many other systems, including blockchains and Lightning, which are both detailed in this tutorial, and many other cryptocurrencies such as Ethereum and Litecoins, which are not.
+Obviously, MarteX Core is the heart of this book, but it's also a fork of the originator (Bitcoin) of many other systems, including blockchains and Masternode, which are both detailed in this tutorial, and many other cryptocurrencies such as Ethereum and Litecoins, which are not.
 
 **_How Are Coins Transferred?_** MarteXcoin currency isn't physical coins. Instead it's an endless series of ownership reassignments. When one person sends coins to another, that transfer is stored as a transaction. It's the transaction that actually records the ownership of the money, not any token local to the owner's wallet or their machine.
 
-**_Who Can You Send Coins To?_** The vast majority of bitcoin transactions involve coins being sent to individual people (or at least to individual MarteXcoin addresses). However, more complex methodologies can be used to send bitcoins to groups of people or to scripts. These various methodologies have names like P2PKH, multisig, and P2SH.
+**_Who Can You Send Coins To?_** The vast majority of martexcoin transactions involve coins being sent to individual people (or at least to individual martexcoin addresses). However, more complex methodologies can be used to send martexcoins to groups of people or to scripts. These various methodologies have names like P2PKH, multisig, and P2SH.
 
-**_How Are Transactions Stored?_** Transactions are combined into larger blocks of data, which are then written to the blockchain ledger. A block is built in such a way that it cannot be replaced or rewritten once several blocks have been built atop (following) it. This is what makes bitcoins non-repudiable: the decentralized global ledger where everything is recorded is effectively a permanent and unchangeable database.
+**_How Are Transactions Stored?_** Transactions are combined into larger blocks of data, which are then written to the blockchain ledger. A block is built in such a way that it cannot be replaced or rewritten once several blocks have been built atop (following) it. This is what makes martexcoins non-repudiable: the decentralized global ledger where everything is recorded is effectively a permanent and unchangeable database.
 
 However, the process of building these blocks is stochastic: it's somewhat random, so you can never be assured that a transaction will be placed in a specific block. There can also be changes in blocks if they're very recent, but only if they're _very_ recent. So, things become non-repudiable (and permanent and unchangeable) after a little bit of time.
 
@@ -22,7 +22,7 @@ Funds are further protected by the use of hashes. Public keys aren't actually st
 
 **_How Are Transactions Created?_** The heart of each MarteXcoin transaction is a FORTH-like scripting language that is used to lock the transaction. To respend the money, the recipient provides specific information to the script that proves he's the intended recipient.
 
-However, these MarteXcoin scripts are the lowest level of MarteXcoin functionality. Much MarteXcoin work is done through the `bitcoind` MarteXcoin daemon, which is controlled through RPC commands. Many people send those RPC commands through the `bitcoin-cli` program, which provides an even simpler interface. Non-programmers don't even worry about these minutia, but instead use programmed wallets with simpler interfaces.
+However, these MarteXcoin scripts are the lowest level of MarteXcoin functionality. Much MarteXcoin work is done through the `martexd` MarteXcoin daemon, which is controlled through RPC commands. Many people send those RPC commands through the `martex-cli` program, which provides an even simpler interface. Non-programmers don't even worry about these minutia, but instead use programmed wallets with simpler interfaces.
 
 ### MarteXcoin — In Short
 
