@@ -120,20 +120,20 @@ _This tutorial assumes that you have some minimal background of how to use the c
   * [17.5: Accessing MarteXcoind with Rust](17_5_Accessing_MarteXcoind_with_Rust.md)
   * [17.6: Accessing MarteXcoind with Swift](17_6_Accessing_MarteXcoind_with_Swift.md)
 
-### PART SIX: USING LIGHTNING-CLI
+### PART SIX: USING MASTERNODE-CLI
 
 **Status:** Finished.
 
-* [18.0: Understanding Your Lightning Setup](18_0_Understanding_Your_Lightning_Setup.md)
-  * [18.1: Verifying Your c-lightning Setup](18_1_Verifying_Your_Lightning_Setup.md)
-  * [18.2: Knowing Your c-lightning Setup](18_2_Knowing_Your_lightning_Setup.md)
-     * [Interlude: Accessing a Second Lightning Node](18_2__Interlude_Accessing_a_Second_Lightning_Node.md)
-  * [18.3: Creating a Lightning Channel](18_3_Setting_Up_a_Channel.md)
-* [19.0: Using Lightning](19_0_Using_Lightning.md)
+* [18.0: Understanding Your Masternode Setup](18_0_Understanding_Your_Masternode_Setup.md)
+  * [18.1: Verifying Your c-Masternode Setup](18_1_Verifying_Your_Masternode_Setup.md)
+  * [18.2: Knowing Your c-Masternode Setup](18_2_Knowing_Your_Masternode_Setup.md)
+     * [Interlude: Accessing a Second Masternode Node](18_2__Interlude_Accessing_a_Second_Masternode_Node.md)
+  * [18.3: Creating a Masternode Channel](18_3_Setting_Up_a_Channel.md)
+* [19.0: Using Masternode](19_0_Using_Masternode.md)
   * [19.1: Generating a Payment Request](19_1_Generate_a_Payment_Request.md)
   * [19.2: Paying an Invoice](19_2_Paying_a_Invoice.md)
   * [19.3: Closing a Lighnting Channel]((19_3_Closing_a_Channel.md))
-  * [19.4: Expanding the Lightning Network](19_4_Lightning_Network_Review.md)
+  * [19.4: Expanding the Masternode Network](19_4_Masternode_Network_Review.md)
    
 ### APPENDICES
 
@@ -193,9 +193,9 @@ Additional contributions are listed below:
 
 | Role                | Names                                    |
 | ------------------- | ---------------------------------------- |
-| ***Contributors:*** | [gg2001](https://github.com/gg2001) (Go, Node.js sections), [gorazdko](https://github.com/gorazdko) (Rust section), [Javier Vargas](https://github.com/javiervargas) (C, Java, Lightning, Tor sections), [jodobear](https://github.com/jodobear) (Appendix: Compiling MarteXcoin, Python section)                                   |
+| ***Contributors:*** | [gg2001](https://github.com/gg2001) (Go, Node.js sections), [gorazdko](https://github.com/gorazdko) (Rust section), [Javier Vargas](https://github.com/javiervargas) (C, Java, Masternode, Tor sections), [jodobear](https://github.com/jodobear) (Appendix: Compiling MarteXcoin, Python section)                                   |
 | ***Reviewers:***    | Glen Willem [@gwillem](https://github.com/gwillem) |
-| ***Sponsors:***     | Blockstream Corporation                  |
+| ***Sponsors:***     | Community                 |
 
 
 ## Responsible Disclosure
