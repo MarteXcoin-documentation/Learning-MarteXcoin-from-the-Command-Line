@@ -1,8 +1,8 @@
 # Learning MarteXcoin from the Command Line
-### _by Christopher Allen and Shannon Appelcline (previous developers)_
-### _by Jetro Costa_
+### _by [@ChristopherA](https://github.com/ChristopherA) and [@shannona](https://github.com/shannona) (previous developers)_
+### _by [@Jetro-Costa](https://github.com/Jetro-Costa)_
 
-![](https://www.blockchaincommons.com/images/projects/lbtc-screen.png)
+![]()
 
 Learning MarteXcoin from the Command Line is a tutorial for working with MarteXcoin (and Masternode) that teaches direct interaction with the servers themselves, as the most robust and secure way to begin cryptocurrency work.
 
@@ -156,11 +156,6 @@ Obviously, this work in progress should not be used for production tasks until i
 
 Unless otherwise noted (either in this [/README.md](./README.md) or in the file's header comments) the contents of this repository are Copyright © 2020 by Blockchain Commons, LLC, and are licensed under  [CC-BY](./LICENSE-CC-BY-4.0.md).
 
-## Financial Support
-
-*Learning MarteXcoin from the Command Line* is a project of [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a "not-for-profit" social benefit corporation committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies, and techniques that sustain and advance blockchain and internet security infrastructure and promote an open web.
-
-To financially support further development of `$projectname` and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage as a [GitHub Sponsor](https://github.com/sponsors/BlockchainCommons). You can also support Blockchain Commons with bitcoins at our [BTCPay Server](https://btcpay.blockchaincommons.com/).
 
 ## Contributing
 
@@ -175,22 +170,7 @@ If your company requires support to use our projects, please feel free to contac
 
 ### Credits
 
-The following people directly contributed to this repository. You can add your name here by getting involved. The first step is learning how to contribute from our [CONTRIBUTING.md](./CONTRIBUTING.md) documentation.
-
-
-| Name              | Role                | Github                                            | Email                                 | GPG Fingerprint                                    |
-| ----------------- | ------------------- | ------------------------------------------------- | ------------------------------------- | -------------------------------------------------- |
-| Christopher Allen | Lead Author | [@ChristopherA](https://github.com/ChristopherA) | \<ChristopherA@LifeWithAlacrity.com\> | FDFE 14A5 4ECB 30FC 5D22  74EF F8D3 6C91 3574 05ED |
-| Shannon Appelcline |  Lead Author | [@shannona](https://github.com/shannona) | \<shannon.appelcline@gmail.com\> | 7EC6 B928 606F 27AD | 
-
-
-Additional contributions are listed below:
-
-| Role                | Names                                    |
-| ------------------- | ---------------------------------------- |
-| ***Contributors:*** | [gg2001](https://github.com/gg2001) (Go, Node.js sections), [gorazdko](https://github.com/gorazdko) (Rust section), [Javier Vargas](https://github.com/javiervargas) (C, Java, Masternode, Tor sections), [jodobear](https://github.com/jodobear) (Appendix: Compiling MarteXcoin, Python section)                                   |
-| ***Reviewers:***    | Glen Willem [@gwillem](https://github.com/gwillem) |
-| ***Sponsors:***     | Community                 |
+A lot of people directly contributed to this repository. You can vienw your name in github contribution by getting involved. The first step is learning how to contribute from our [CONTRIBUTING.md](./CONTRIBUTING.md) documentation.
 
 
 ## Responsible Disclosure
