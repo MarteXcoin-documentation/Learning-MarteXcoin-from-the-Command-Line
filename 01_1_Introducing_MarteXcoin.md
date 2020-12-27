@@ -4,9 +4,9 @@ Before you can get started programming MarteXcoin , you should have a basic unde
 
 ## About MarteX Core
 
-MarteX core is a programmatic system that allows for the transfer of the martexcoin currency. It is enabled by a decentralized, peer-to-peer system of nodes, which include full nodes, wallets, and miners. Working together, they ensure that martexcoin transactions are fast and non-repudiable. Thanks to the decentralized nature of the system, these transactions are also censor-resistant and can provide other advantages such as pseudonymity and non-correlation if used well.
+MarteX core is a programmatic system that allows for the transfer of the martexcoin currency. It is enabled by a decentralized, peer-to-peer system of nodes, which include full nodes, wallets, masternodes and miners. Working together, they ensure that martexcoin transactions are fast and non-repudiable. Thanks to the decentralized nature of the system, these transactions are also censor-resistant and can provide other advantages such as pseudonymity, anonymity and non-correlation if used well.
 
-Obviously, MarteX Core is the heart of this book, but it's also a fork of the originator (Bitcoin) of many other systems, including blockchains and Masternode, which are both detailed in this tutorial, and many other cryptocurrencies such as Ethereum and Litecoins, which are not.
+Obviously, MarteX Core is the heart of this book, but it's also a fork of the originator (Bitcoin) of many other systems, including blockchains and Masternode, which are both detailed in this tutorial, and many other cryptocurrencies such as Ethereum, Dash and Litecoins, which are not.
 
 **_How Are Coins Transferred?_** MarteXcoin currency isn't physical coins. Instead it's an endless series of ownership reassignments. When one person sends coins to another, that transfer is stored as a transaction. It's the transaction that actually records the ownership of the money, not any token local to the owner's wallet or their machine.
 

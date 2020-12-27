@@ -2,8 +2,6 @@
 ### _by [@ChristopherA](https://github.com/ChristopherA) and [@shannona](https://github.com/shannona) (previous developers)_
 ### _by [@Jetro-Costa](https://github.com/Jetro-Costa)_
 
-![]()
-
 Learning MarteXcoin from the Command Line is a tutorial for working with MarteXcoin (and Masternode) that teaches direct interaction with the servers themselves, as the most robust and secure way to begin cryptocurrency work.
 
 > NOTE: This is a draft in progress, so that I can get some feedback from early reviewers. It is not yet ready for use.
