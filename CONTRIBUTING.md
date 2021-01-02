@@ -9,6 +9,7 @@ We love your input! We want to make contributing to this project as easy and tra
 - Becoming a maintainer
 
 ## We Develop with Github
+
 We use GitHub to host code, to track issues and feature requests, and to accept Pull Requests.
 
 ## Report Bugs using Github's [issues](https://github.com/briandk/transcriptase-atom/issues)
