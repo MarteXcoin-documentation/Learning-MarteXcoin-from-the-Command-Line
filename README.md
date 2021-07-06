@@ -1,8 +1,6 @@
 # Learning MarteXcoin from the Command Line
-### _by Christopher Allen and Shannon Appelcline (previous developers)_
-### _by Jetro Costa_
-
-![](https://www.blockchaincommons.com/images/projects/lbtc-screen.png)
+### _by [@ChristopherA](https://github.com/ChristopherA) and [@shannona](https://github.com/shannona) (previous developers)_
+### _by [@Jetro-Costa](https://github.com/Jetro-Costa)_
 
 Learning MarteXcoin from the Command Line is a tutorial for working with MarteXcoin (and Masternode) that teaches direct interaction with the servers themselves, as the most robust and secure way to begin cryptocurrency work.
 
@@ -120,20 +118,20 @@ _This tutorial assumes that you have some minimal background of how to use the c
   * [17.5: Accessing MarteXcoind with Rust](17_5_Accessing_MarteXcoind_with_Rust.md)
   * [17.6: Accessing MarteXcoind with Swift](17_6_Accessing_MarteXcoind_with_Swift.md)
 
-### PART SIX: USING LIGHTNING-CLI
+### PART SIX: USING MASTERNODE-CLI
 
 **Status:** Finished.
 
-* [18.0: Understanding Your Lightning Setup](18_0_Understanding_Your_Lightning_Setup.md)
-  * [18.1: Verifying Your c-lightning Setup](18_1_Verifying_Your_Lightning_Setup.md)
-  * [18.2: Knowing Your c-lightning Setup](18_2_Knowing_Your_lightning_Setup.md)
-     * [Interlude: Accessing a Second Lightning Node](18_2__Interlude_Accessing_a_Second_Lightning_Node.md)
-  * [18.3: Creating a Lightning Channel](18_3_Setting_Up_a_Channel.md)
-* [19.0: Using Lightning](19_0_Using_Lightning.md)
+* [18.0: Understanding Your Masternode Setup](18_0_Understanding_Your_Masternode_Setup.md)
+  * [18.1: Verifying Your c-Masternode Setup](18_1_Verifying_Your_Masternode_Setup.md)
+  * [18.2: Knowing Your c-Masternode Setup](18_2_Knowing_Your_Masternode_Setup.md)
+     * [Interlude: Accessing a Second Masternode Node](18_2__Interlude_Accessing_a_Second_Masternode_Node.md)
+  * [18.3: Creating a Masternode Channel](18_3_Setting_Up_a_Channel.md)
+* [19.0: Using Masternode](19_0_Using_Masternode.md)
   * [19.1: Generating a Payment Request](19_1_Generate_a_Payment_Request.md)
   * [19.2: Paying an Invoice](19_2_Paying_a_Invoice.md)
   * [19.3: Closing a Lighnting Channel]((19_3_Closing_a_Channel.md))
-  * [19.4: Expanding the Lightning Network](19_4_Lightning_Network_Review.md)
+  * [19.4: Expanding the Masternode Network](19_4_Masternode_Network_Review.md)
    
 ### APPENDICES
 
@@ -156,21 +154,11 @@ Obviously, this work in progress should not be used for production tasks until i
 
 Unless otherwise noted (either in this [/README.md](./README.md) or in the file's header comments) the contents of this repository are Copyright © 2020 by Blockchain Commons, LLC, and are licensed under  [CC-BY](./LICENSE-CC-BY-4.0.md).
 
-## Financial Support
-
-*Learning MarteXcoin from the Command Line* is a project of [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a "not-for-profit" social benefit corporation committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies, and techniques that sustain and advance blockchain and internet security infrastructure and promote an open web.
-
-To financially support further development of `$projectname` and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage as a [GitHub Sponsor](https://github.com/sponsors/BlockchainCommons). You can also support Blockchain Commons with bitcoins at our [BTCPay Server](https://btcpay.blockchaincommons.com/).
 
 ## Contributing
 
 We encourage public contributions through issues and pull requests! Please review [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our development process. All contributions to this repository require a GPG signed [Contributor License Agreement](./CLA.md).
 
-### Discussions
-
-The best place to talk about Blockchain Commons and its projects is in our GitHub Discussions areas.
-
-[**Blockchain Commons Discussions**](https://github.com/BlockchainCommons/Community/discussions). For developers, interns, and patrons of Blockchain Commons, please use the discussions area of the [Community repo](https://github.com/BlockchainCommons/Community) to talk about general Blockchain Commons issues, the intern program, or topics other than the [Gordian System](https://github.com/BlockchainCommons/Gordian/discussions) or the [wallet standards](https://github.com/BlockchainCommons/AirgappedSigning/discussions), each of which have their own discussion areas.
 
 ### Other Questions & Problems
 
@@ -180,22 +168,7 @@ If your company requires support to use our projects, please feel free to contac
 
 ### Credits
 
-The following people directly contributed to this repository. You can add your name here by getting involved. The first step is learning how to contribute from our [CONTRIBUTING.md](./CONTRIBUTING.md) documentation.
-
-
-| Name              | Role                | Github                                            | Email                                 | GPG Fingerprint                                    |
-| ----------------- | ------------------- | ------------------------------------------------- | ------------------------------------- | -------------------------------------------------- |
-| Christopher Allen | Lead Author | [@ChristopherA](https://github.com/ChristopherA) | \<ChristopherA@LifeWithAlacrity.com\> | FDFE 14A5 4ECB 30FC 5D22  74EF F8D3 6C91 3574 05ED |
-| Shannon Appelcline |  Lead Author | [@shannona](https://github.com/shannona) | \<shannon.appelcline@gmail.com\> | 7EC6 B928 606F 27AD | 
-
-
-Additional contributions are listed below:
-
-| Role                | Names                                    |
-| ------------------- | ---------------------------------------- |
-| ***Contributors:*** | [gg2001](https://github.com/gg2001) (Go, Node.js sections), [gorazdko](https://github.com/gorazdko) (Rust section), [Javier Vargas](https://github.com/javiervargas) (C, Java, Lightning, Tor sections), [jodobear](https://github.com/jodobear) (Appendix: Compiling MarteXcoin, Python section)                                   |
-| ***Reviewers:***    | Glen Willem [@gwillem](https://github.com/gwillem) |
-| ***Sponsors:***     | Blockstream Corporation                  |
+A lot of people directly contributed to this repository. You can vienw your name in github contribution by getting involved. The first step is learning how to contribute from our [CONTRIBUTING.md](./CONTRIBUTING.md) documentation.
 
 
 ## Responsible Disclosure
